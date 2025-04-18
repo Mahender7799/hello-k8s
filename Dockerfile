@@ -1,4 +1,3 @@
-FROM openjdk:17-jdk-slim
-WORKDIR /app
-COPY hello.class .
-CMD ["java", "hello"]
+FROM openjdk:17
+COPY target/hello-k8s-1.0.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
